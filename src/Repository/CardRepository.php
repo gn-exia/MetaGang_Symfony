@@ -19,6 +19,16 @@ class CardRepository extends ServiceEntityRepository
         parent::__construct($registry, Card::class);
     }
 
+    public function search($value)
+    {
+        $valueWithPercent = "%$value%";
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.content like :val')
+            ->setParameter('val', $valueWithPercent)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Card[] Returns an array of Card objects
     //  */
