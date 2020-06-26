@@ -17,7 +17,8 @@
 								<h5 class="card-title">{{item.name}}</h5>
 								{% if app.request.attributes.get('_route') == 'home' %}
 									<p class="card-text">{{item.description | u.truncate(64, '...')}}</p>
-									Lire la suite
+									<footer class="blockquote-footer">Lire la suite<cite title="Source Title"></cite>
+									</footer>
 								</a>
 							</div>
 						{% else %}
