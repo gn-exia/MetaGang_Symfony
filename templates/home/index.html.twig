@@ -8,12 +8,18 @@
 					<div class="card mt-3">
 						<h5 class="card-header">{{item.name}}</h5>
 						<div class="card-body">
-							<h5 class="card-title">{{item.name}}</h5>
-							{% if app.request.attributes.get('_route') == 'home' %}
-								<p class="card-text">{{item.description | u.truncate(64, '...')}}</p>
-
-								Lire la suite
-							</a>
+							<div
+								class="cardImg">
+								{# <div class="card" style="background-image: url('{{ item.UrlImage }}');"></div> #}
+								<style class="hover"></style>
+							</div>
+							<div class="card-text">
+								<h5 class="card-title">{{item.name}}</h5>
+								{% if app.request.attributes.get('_route') == 'home' %}
+									<p class="card-text">{{item.description | u.truncate(64, '...')}}</p>
+									Lire la suite
+								</a>
+							</div>
 						{% else %}
 							<p class="card-text">{{item.clan}}</p>
 							<a href="{{ path('home') }}" class="btn btn-primary">
